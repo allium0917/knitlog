@@ -1,0 +1,204 @@
+/* 기본 설정 */
+body {
+  margin: 0 150px;
+  font-family: 'Arial', sans-serif;
+  background: #ffffff;
+  color: #272727;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  margin: 10px auto 30px;
+  padding: 50px;
+  border: 3px solid #000000;
+}
+
+header h1 {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80px;
+}
+
+/* 전체 레이아웃 */
+.container {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+/* ===== 사이드바 영역 ===== */
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 프로필 카드 */
+.profile {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background: #ccc;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.name, .type {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 글쓰기 버튼 */
+.write-btn {
+  width: 100%;
+  padding: 10px;
+  background: #dddcdc;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.write-btn:hover {
+  background: #ccc;
+}
+
+/* 검색창 */
+.search {
+  display: flex;
+  background: #dddcdc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.search input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+.search-btn {
+  padding: 0 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.division {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  font-size: 14px;
+
+}
+
+/* 메뉴 리스트 */
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  font-size: 14px;
+  margin: 8px 0;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  width:100%;
+}
+
+.menu li:hover {
+  background: #f5e9e9;
+  border-radius: 5px;
+  padding-left: 6px;
+}
+
+.menu li::before {
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji';
+  display: inline-block;
+  width: 20px;
+}
+
+.division li:nth-child(1)::before { content: "📄"; }
+.division li:nth-child(2)::before { content: "🔥"; }
+.menu-list li:nth-child(1)::before { content: "📢"; }
+.menu-list li:nth-child(2)::before { content: "📄"; }
+.menu-list li:nth-child(3)::before { content: "📄"; }
+.menu-list li:nth-child(4)::before { content: "📄"; }
+.menu-list li:nth-child(5)::before { content: "📄"; }
+
+/* ===== 메인 컨텐츠 영역 ===== */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* 탭 */
+.tabs {
+  display: flex;
+  gap: 40px; /* 사이 간격 충분히 줌 */
+  padding: 0 20px;
+}
+
+.tab {
+  position: relative;
+  padding-bottom: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.tab.active::after {
+  transform: scaleX(1); /* 활성화된 탭만 보임 */
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.tab-content.active {
+  display: block;
+}

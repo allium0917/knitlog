@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KnitLog</title>
+  <link rel="stylesheet" href="home.css">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Lavishly+Yours&family=Playwrite+VN+Guides&display=swap');
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KnitLog</h1>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="division">
+      <div class="profile ">
+        <div class="avatar"></div>
+        <div class="info">
+          <p class="name">name</p>
+          <p class="type">knit type</p>
+        </div>
+      </div>
+      </div>
+
+      <button class="write-btn">글쓰기</button>
+
+      <div class="search">
+        <input type="text" placeholder="검색어 입력">
+        <button class="search-btn">🔍</button>
+      </div>
+
+      <nav class="menu">
+        <div class="division">
+        🔖 북마크
+        <span>▼</span>
+        </div>
+        <div class="division">
+        <ul>
+          <li>전체글보기</li>
+          <li>인기글</li>
+        </ul>
+        </div>
+        <ul class="menu-list">
+          <li>공지</li>
+          <li>자유게시판</li>
+          <li>창작게시판</li>
+          <li>후기게시판</li>
+          <li>Q&A</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <div class="tabs">
+        <div class="tab active" data-tab="all">전체글보기</div>
+        <div class="tab" data-tab="notice">공지</div>
+      </div>
+
+      <div class="tab-content active" id="all">
+        전체글 콘텐츠 영역입니다.
+      </div>
+      <div class="tab-content" id="notice">
+        공지 콘텐츠 영역입니다.
+      </div>
+
+    </main>
+  </div>
+
+  <script src="home.js"></script>
+</body>
+</html>
