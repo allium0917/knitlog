@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Lavishly+Yours&family=Playwrite+VN+Guides&display=swap');
-    </style>
-    <title>login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
-<div class="container">
-  <h2>KnitLog</h2>
-  <div class="sub-container">
-    서브박스 내용
+  <header>
+    <h1>KnitLog</h1>
+  </header>
+  <div class="login-container">
+    <h2>로그인</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="아이디" required>
+      <input type="password" id="password" placeholder="비밀번호" required>
+      <button type="submit" class="login-button">로그인</button>
+      <p id="error-message"></p>
+    </form>
   </div>
-</div>
+
+  <script src="login.js"></script>
 </body>
 </html>

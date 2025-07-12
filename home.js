@@ -7,10 +7,8 @@ if (isLoggedIn) {
   document.getElementById('user-profile').style.display = 'flex';
   logoutButton.style.display = 'block';
 
-  document.querySelector('.name').innerText = localStorage.getItem('username') || '이름';
-  document.querySelector('.type').innerText = localStorage.getItem('knitType') || 'knit type';
 
-  // 이벤트 중복 방지: 한 번만 등록
+  // 이벤트 중복 방지
   if (!logoutButton.dataset.listenerAdded) {
     logoutButton.addEventListener('click', () => {
       localStorage.removeItem('loggedIn');
@@ -26,7 +24,7 @@ if (isLoggedIn) {
   logoutButton.style.display = 'none';
 }
 
-document.querySelector('.write-btn').addEventListener('click', () => {
+document.querySelector('.write-btn').addEventListener('click', (e) => {
   const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
   
   if (!isLoggedIn) {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KnitLog 글쓰기</title>
+  <link rel="stylesheet" href="write.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="logo">KnitLog</h1>
+    </header>
+
+    <section class="post-form">
+      <h2>글쓰기</h2>
+
+      <div class="form-row">
+        <div class="dropdown">
+          <button id="boardBtn">게시판 선택 ▼</button>
+          <ul id="boardList" class="dropdown-menu">
+            <li>자유 게시판</li>
+            <li>정보 게시판</li>
+            <li>공지사항</li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <button id="prefixBtn">말머리 선택 ▼</button>
+          <ul id="prefixList" class="dropdown-menu">
+            <li>[질문]</li>
+            <li>[정보]</li>
+            <li>[잡담]</li>
+          </ul>
+        </div>
+
+        <button class="submit-btn">등록</button>
+      </div>
+
+      <input type="text" class="title-input" placeholder="제목을 입력하세요" />
+
+      <textarea class="content-input" placeholder="내용을 입력하세요"></textarea>
+    </section>
+  </div>
+
+  <script src="write.js"></script>
+</body>
+</html>
