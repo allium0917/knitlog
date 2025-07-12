@@ -1,0 +1,35 @@
+/* 기본 설정 */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #ffffff;
+  color: #272727;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;   /* 세로 쌓기 */
+  align-items: center;      /* 가로 중앙 정렬 */
+  padding: 50px 150px 0 150px;
+  height: 100vh;
+  text-align: center;
+}
+
+.sub-container {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  border: 1px solid #272727;
+  box-sizing: border-box;
+  background-color: #eee;
+  margin-top: 20px; /* h2와 간격 */
+}
+
+.container h2 {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80px;
+  margin: 0;
+}

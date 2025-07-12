@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KnitLog</title>
   <link rel="stylesheet" href="home.css">
-  <style>
-  @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Lavishly+Yours&family=Playwrite+VN+Guides&display=swap');
-  </style>
 </head>
 <body>
   <header>
@@ -16,16 +13,21 @@
 
   <div class="container">
     <aside class="sidebar">
-      <div class="division">
-      <div class="profile ">
-        <div class="avatar"></div>
-        <div class="info">
-          <p class="name">name</p>
-          <p class="type">knit type</p>
-        </div>
+      <div id="auth-buttons" class="division">
+        <button onclick="location.href='login.html'">로그인</button>
+        <button onclick="location.href='signup.html'">회원가입</button>
       </div>
-      </div>
+ 
+  <div id="user-profile" class="profile" style="display: none;">
+    <div class="avatar"></div>
+    <div>
+      <p class="name">이름</p>
+      <p class="type">knit type</p>
+      <button id="logout-button" class="logout-btn">로그아웃</button>
+    </div>
+  </div>
 
+         
       <button class="write-btn">글쓰기</button>
 
       <div class="search">
@@ -34,16 +36,10 @@
       </div>
 
       <nav class="menu">
-        <div class="division">
-        🔖 북마크
-        <span>▼</span>
-        </div>
-        <div class="division">
-        <ul>
+        <ul class="division">
           <li>전체글보기</li>
           <li>인기글</li>
         </ul>
-        </div>
         <ul class="menu-list">
           <li>공지</li>
           <li>자유게시판</li>
@@ -66,7 +62,6 @@
       <div class="tab-content" id="notice">
         공지 콘텐츠 영역입니다.
       </div>
-
     </main>
   </div>
 

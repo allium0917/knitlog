@@ -1,9 +1,12 @@
+  @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Lavishly+Yours&family=Playwrite+VN+Guides&display=swap');
+
 /* 기본 설정 */
 body {
-  margin: 0 150px;
+  margin: 0;
   font-family: 'Arial', sans-serif;
   background: #ffffff;
   color: #272727;
+  height: 100vh;
 }
 
 * {
@@ -12,8 +15,8 @@ body {
 
 header {
   text-align: center;
-  margin: 10px auto 30px;
-  padding: 50px;
+  margin: 20px 150px;
+  padding: 0 10px;
   border: 3px solid #000000;
 }
 
@@ -27,8 +30,8 @@ header h1 {
 /* 전체 레이아웃 */
 .container {
   display: flex;
-  height: calc(100vh - 80px);
-}
+  min-height: 100vh; 
+  padding: 0 150px;}
 
 /* ===== 사이드바 영역 ===== */
 .sidebar {
@@ -41,6 +44,7 @@ header h1 {
   gap: 20px;
 }
 
+
 /* 프로필 카드 */
 .profile {
   display: flex;
@@ -48,9 +52,10 @@ header h1 {
   padding: 15px;
   background: #f0f0f0;
   border-radius: 10px;
-  margin: 10px 0;
 }
-
+.logout-btn{
+  margin-top: 5px;
+}
 .avatar {
   width: 50px;
   height: 50px;
@@ -112,7 +117,7 @@ header h1 {
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
   font-size: 14px;
-
+  padding: 10px 0;
 }
 
 /* 메뉴 리스트 */
@@ -158,6 +163,7 @@ header h1 {
 .content {
   flex: 1;
   padding: 20px;
+  overflow-y: auto;
 }
 
 /* 탭 */
