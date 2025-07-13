@@ -1,0 +1,28 @@
+  @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Lavishly+Yours&family=Playwrite+VN+Guides&display=swap');
+
+/* 기본 설정 */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #ffffff;
+  color: #272727;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  margin: 20px 150px;
+  padding: 0 10px;
+  border: 3px solid #000000;
+}
+
+header h1 {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80px;
+}

@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'Enter') {
       event.preventDefault();  // 기본 동작인 폼 제출 방지
       searchButton.click();    // 검색 버튼 클릭과 같은 동작
+      alert('원하시는 결과가 나오지 않는다면, 페이지 확인 후 검색어를 다시 입력해 주세요.');
     }
   });
 });
