@@ -163,13 +163,21 @@ header h1 {
   width: 20px;
 }
 
+.menu-lst {
+  border-top: #272727 solid 1px;
+  border-bottom: #272727 solid 1px;
+}
+
 .division li:nth-child(1)::before { content: "📄"; }
-.division li:nth-child(2)::before { content: "🔥"; }
 .menu-list li:nth-child(1)::before { content: "📢"; }
 .menu-list li:nth-child(2)::before { content: "📄"; }
 .menu-list li:nth-child(3)::before { content: "📄"; }
 .menu-list li:nth-child(4)::before { content: "📄"; }
 .menu-list li:nth-child(5)::before { content: "📄"; }
+.menu-list li:nth-child(6)::before { content: "📄"; }
+.menu-lst li:nth-child(1)::before { content: "📄"; }
+.menu-lst li:nth-child(2)::before { content: "📄"; }
+.menu-lst li:nth-child(3)::before { content: "📄"; }
 
 /* ===== 메인 컨텐츠 영역 ===== */
 .content {

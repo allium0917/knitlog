@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div id="post-container">
+    <h2 id="post-title"></h2>
+    <p id="post-author"></p>
+    <p id="post-date"></p>
+    <hr />
+    <p id="post-content"></p>
+    
+    <button id="delete-button">삭제</button> <!-- 🆕 삭제 버튼 -->
+  </div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const postId = parseInt(params.get('id'));
+    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+    const post = posts.find(p => p.id === postId);
+    if (post) {
+        document.getElementById('post-title').textContent = post.title;
+        document.getElementById('post-date').textContent = post.date;
+        document.getElementById('post-content').textContent = post.content;
+        document.getElementById('post-author').textContent = `작성자: ${post.author || '알 수 없음'}`;
+    } 
+    else {
+        document.getElementById('post-container').innerHTML = '<p>글을 찾을 수 없습니다.</p>';
+    }
+
+
+    if (post) {
+      document.getElementById('post-title').textContent = post.title;
+      document.getElementById('post-date').textContent = post.date;
+      document.getElementById('post-content').textContent = post.content;
+    } else {
+      document.getElementById('post-container').innerHTML = '<p>글을 찾을 수 없습니다.</p>';
+    }
+
+    // 🧨 삭제 버튼 기능
+    document.getElementById('delete-button').addEventListener('click', () => {
+      const confirmDelete = confirm('정말로 이 글을 삭제하시겠습니까?');
+      if (!confirmDelete) return;
+
+      const updatedPosts = posts.filter(p => p.id !== postId);
+      localStorage.setItem('posts', JSON.stringify(updatedPosts));
+      alert('글이 삭제되었습니다.');
+      window.location.href = 'home.html';
+    });
+
+    const currentUser = localStorage.getItem('username');
+
+if (post.author !== currentUser) {
+  document.getElementById('delete-button').style.display = 'none';
+}
+
+  </script>
+</body>
+</html>

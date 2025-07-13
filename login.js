@@ -19,7 +19,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     alert("로그인 성공!");
     localStorage.setItem("loggedIn", "true");
     localStorage.setItem("username", username);
-    localStorage.setItem("knitType", userData.knitType); // 저장된 뜨개유형 값 설정
+    localStorage.setItem("knitType", userData.knitType);
     window.location.href = "home.html";
   } else {
     errorMessage.textContent = "비밀번호가 올바르지 않습니다.";

@@ -21,7 +21,7 @@
       </div>
  
   <div id="user-profile" class="profile" style="display: none;">
-    <div class="avatar"></div>
+    <div class="avatar" onclick="location.href='mypage.html'"></div>
     <div>
       <p class="name">이름</p>
       <p class="type">knit type</p>
@@ -31,6 +31,7 @@
 
          
 <button class="write-btn">글쓰기</button>
+
       <div class="search">
         <input type="text" placeholder="검색어 입력">
         <button class="search-btn">🔍</button>
@@ -38,30 +39,30 @@
 
       <nav class="menu">
         <ul class="division">
-          <li>전체글보기</li>
-          <li>인기글</li>
+
         </ul>
         <ul class="menu-list">
-          <li>공지</li>
-          <li>자유게시판</li>
-          <li>창작게시판</li>
-          <li>후기게시판</li>
-          <li>Q&A</li>
+        <ul class="menu-list">
+          <li data-tab="전체글보기">전체글보기</li>
+          <li data-tab="공지">공지</li>
+          <li data-tab="자유게시판">자유게시판</li>
+          <li data-tab="창작게시판">창작게시판</li>
+          <li data-tab="후기게시판">후기게시판</li>
+          <li data-tab="Q&A">Q&A</li>
         </ul>
+
+        </ul>
+        <ul class="menu-lst">
+          <li>ChekcList</li>
+          <li>도안저장소</li>
       </nav>
     </aside>
 
     <main class="content">
       <div class="tabs">
         <div class="tab active" data-tab="all">전체글보기</div>
-        <div class="tab" data-tab="notice">공지</div>
       </div>
       <div class="tab-content active" id="all">
-        전체글 콘텐츠 영역입니다.
-      </div>
-      <div class="tab-content" id="notice">
-        공지 콘텐츠 영역입니다.
-      </div>
     </main>
   </div>
 

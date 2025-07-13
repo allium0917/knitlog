@@ -7,6 +7,10 @@ if (isLoggedIn) {
   document.getElementById('user-profile').style.display = 'flex';
   logoutButton.style.display = 'block';
 
+  document.querySelector('.name').textContent = localStorage.getItem('username') || '이름';
+  document.querySelector('.type').textContent = localStorage.getItem('knitType') || 'knit type';
+
+
 
   // 이벤트 중복 방지
   if (!logoutButton.dataset.listenerAdded) {
@@ -50,5 +54,40 @@ tabs.forEach(tab => {
     const target = tab.getAttribute('data-tab');
     document.getElementById(target).classList.add('active');
   });
+});
+
+document.querySelectorAll('.menu-list li').forEach(menuItem => {
+  menuItem.addEventListener('click', () => {
+    const tabName = menuItem.dataset.tab;
+    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+    const container = document.getElementById(tabName);
+
+    // 상단 탭 텍스트 바꾸기
+    document.querySelector('.tab.active').textContent = tabName;
+
+    // 글 필터링
+    const filtered = posts.filter(post => post.board === tabName);
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<p>작성된 글이 없습니다.</p>';
+    return;
+  }
+
+    let html = '';
+
+    filtered.slice().reverse().forEach(post => {
+      html += `
+        <div class="post">
+          <h3><a href="post.html?id=${post.id}">${post.title}</a></h3>
+          <small>${post.date}</small>
+        </div>
+        <hr/>
+      `;
+    });
+
+
+  container.innerHTML = html;
+});
+
 });
 });
