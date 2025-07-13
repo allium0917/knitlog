@@ -1,0 +1,123 @@
+  @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Lavishly+Yours&family=Playwrite+VN+Guides&display=swap');
+
+/* 기본 설정 */
+body {
+  margin: 20px 150px;
+  font-family: 'Arial', sans-serif;
+  background: #ffffff;
+  color: #272727;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  padding: 0 10px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80px;
+}
+
+
+.container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+#taskInput, #dateInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+#addTaskBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: #93d295;
+    color: #272727;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#addTaskBtn:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+button.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.task-date {
+    font-size: 12px;
+    color: #777;
+    margin-left: 10px;
+}
+
+.d-day {
+    font-size: 12px;
+    color: #f44336;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #888;                   
+}

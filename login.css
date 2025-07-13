@@ -53,8 +53,8 @@ button {
   width: 100%;
   padding: 20px;
   margin-top: 50px;
-  background-color: #929292;
-  color: white;
+  background-color: #D5F3DF;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -62,12 +62,12 @@ button {
 }
 
 button:hover {
-  background-color: #929292;
+  background-color: #D5F3DF;
 }
 
 #error-message {
   color: red;
   text-align: center;
-  margin-top: 10px;
-  font-size: 0.9rem;
+  margin-top: 20px;
+  font-size: 30px;
 }

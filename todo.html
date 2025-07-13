@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+        <header>
+      <h1 onclick="location.href='home.html'">KnitLog</h1>
+    </header>
+    <div class="container">
+        <h1>To-Do List</h1>
+        
+        <!-- 날짜와 일정 입력 필드 -->
+        <input type="text" id="taskInput" placeholder="할 일을 입력하세요..." />
+        <input type="date" id="dateInput" />
+        <button id="addTaskBtn">추가</button>
+        
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+</html>

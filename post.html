@@ -4,85 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Lavishly+Yours&family=Playwrite+VN+Guides&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Lavishly+Yours&family=Playwrite+VN+Guides&display=swap');
 
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: #ffffff;
-  color: #272727;
-  height: 100vh;
-}
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #ffffff;
+            color: #272727;
+            height: 100vh;
+            margin: 20px 150px;
+        }
 
-* {
-  box-sizing: border-box;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-header {
-  text-align: center;
-  margin: 20px 150px;
-  padding-top: 50px;
-   border: solid 1px #272727;
-}
+        header {
+            margin-top: 20px;
+            text-align: center;
+            padding: 20px auto;
+            border-bottom: solid 1px #272727;
+        }
 
-header h1 {
-  font-family: "Imperial Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 80px;
-}
+        header h1 {
+            font-family: "Imperial Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 80px;
+        }
+
+        #delete-button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #delete-button:hover {
+            background-color: #ff4e4e;
+        }
+
+        #save-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #save-button:hover {
+            background-color: #45a049;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        #post-content {
+            flex: 1;
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
     </style>
     <title>Document</title>
 </head>
 <body>
-      <header>
-      <h1>KnitLog</h1>
+    <header>
+      <h1 onclick="location.href='home.html'">KnitLog</h1>
     </header>
+    <div id="post-container">
+        <h2 id="post-title"></h2>
+        <p id="post-board"></p>
+        <p id="post-author"></p>
+        <p id="post-date"></p>
+        <hr />
+        <div id="post-content">
+            <!-- 여기에서 post.html 내용을 동적으로 불러옵니다 -->
+        </div>
+        <div class="buttons">
+        <button id="delete-button">삭제</button> <!-- 삭제 버튼 -->
+        <button id="save-button">저장</button> <!-- 저장 버튼 -->
+        </div>
+    </div>
 
-  <div id="post-container">
-    <h2 id="post-title"></h2>
-    <p id="post-board"></p>
-    <p id="post-author"></p>
-    <p id="post-date"></p>
-    <hr />
-    <p id="post-content"></p>
-    
-    <button id="delete-button">삭제</button> <!-- 🆕 삭제 버튼 -->
-  </div>
+    <script>
+        const params = new URLSearchParams(location.search);
+        const postId = parseInt(params.get('id'));
+        const posts = JSON.parse(localStorage.getItem('posts')) || [];
 
-  <script>
-    const params = new URLSearchParams(location.search);
-    const postId = parseInt(params.get('id'));
-    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+        const post = posts.find(p => p.id === postId);
+        if (post) {
+            document.getElementById('post-board').textContent = `게시판: ${post.board}`;
+            document.getElementById('post-title').textContent = post.title;
+            document.getElementById('post-date').textContent = post.date;
+            document.getElementById('post-author').textContent = `작성자: ${post.author || '알 수 없음'}`;
+            
+            // post.html의 본문을 동적으로 로드
+            document.getElementById('post-content').innerHTML = post.content;
+        } else {
+            document.getElementById('post-container').innerHTML = '<p>글을 찾을 수 없습니다.</p>';
+        }
 
-    const post = posts.find(p => p.id === postId);
-    if (post) {
-        document.getElementById('post-board').textContent = `게시판: ${post.board}`;
-        document.getElementById('post-title').textContent = post.title;
-        document.getElementById('post-date').textContent = post.date;
-        document.getElementById('post-content').textContent = post.content;
-        document.getElementById('post-author').textContent = `작성자: ${post.author || '알 수 없음'}`;
-    } 
-    else {
-        document.getElementById('post-container').innerHTML = '<p>글을 찾을 수 없습니다.</p>';
-    }
+        // 삭제 버튼 기능
+        document.getElementById('delete-button').addEventListener('click', () => {
+            const confirmDelete = confirm('정말로 이 글을 삭제하시겠습니까?');
+            if (!confirmDelete) return;
 
-    // 🧨 삭제 버튼 기능
-    document.getElementById('delete-button').addEventListener('click', () => {
-      const confirmDelete = confirm('정말로 이 글을 삭제하시겠습니까?');
-      if (!confirmDelete) return;
+            const updatedPosts = posts.filter(p => p.id !== postId);
+            localStorage.setItem('posts', JSON.stringify(updatedPosts));
+            alert('글이 삭제되었습니다.');
+            window.location.href = 'home.html'; // 삭제 후 home.html로 이동
+        });
 
-      const updatedPosts = posts.filter(p => p.id !== postId);
-      localStorage.setItem('posts', JSON.stringify(updatedPosts));
-      alert('글이 삭제되었습니다.');
-      window.location.href = 'home.html'; // 삭제 후 home.html로 이동
-    });
+        // 저장 버튼 기능
+        document.getElementById('save-button').addEventListener('click', () => {
+            const savedPosts = JSON.parse(localStorage.getItem('savedPosts')) || [];
+            
+            // 이미 저장된 게시물이 아니면 저장
+            if (!savedPosts.some(p => p.id === postId)) {
+                savedPosts.push(post);
+                localStorage.setItem('savedPosts', JSON.stringify(savedPosts));
+                alert('게시물이 저장되었습니다.');
+            } else {
+                alert('이미 저장된 게시물입니다.');
+            }
+        });
 
-    const currentUser = localStorage.getItem('username');
+        const currentUser = localStorage.getItem('username'); // 로그인한 사용자 이름
 
-    if (post.author !== currentUser) {
-      document.getElementById('delete-button').style.display = 'none';
-    }
-  </script>
+        if (post.author !== currentUser) {
+            // 글 작성자와 로그인한 사용자가 다르면 삭제 버튼 숨기기
+            document.getElementById('delete-button').style.display = 'none';
+        }
+
+        // 저장된 게시물 여부 확인
+        const savedPosts = JSON.parse(localStorage.getItem('savedPosts')) || [];
+        if (savedPosts.some(p => p.id === postId)) {
+            // 이미 저장된 게시물이라면 "저장" 버튼을 숨김
+            document.getElementById('save-button').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.name').textContent = localStorage.getItem('username') || '이름';
     document.querySelector('.type').textContent = localStorage.getItem('knitType') || 'knit type';
     
+    
     if (!logoutButton.dataset.listenerAdded) {
       logoutButton.addEventListener('click', () => {
         localStorage.removeItem('loggedIn');
