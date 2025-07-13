@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-     const username = localStorage.getItem('username') || '익명';
+    const username = localStorage.getItem('username') || '익명';
 
     const post = {
       id: Date.now(),
@@ -68,6 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     posts.push(post);
     localStorage.setItem("posts", JSON.stringify(posts));
 
-    window.location.href = "home.html";
+    window.location.href = "home.html"; // 글 작성 후 home으로 돌아감
   });
 });
